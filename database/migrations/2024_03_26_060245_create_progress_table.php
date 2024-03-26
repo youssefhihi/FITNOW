@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('progress', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->float('weight');
+            $table->json('measurements');
+            $table->text('performance');
+            $table->enum('status', ['finish', 'unfinish'])->default('unfinish');
+            $table->timestamp('date')->useCurrent();
+            $table->text('additional_notes');
             $table->timestamps();
         });
     }
