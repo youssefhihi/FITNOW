@@ -115,7 +115,12 @@ class ProgressController extends Controller
             $request->validate([
                 'status'=> 'required|in:finish,unfinish',
             ]);
-    
+            if($request->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $request->errors()
+                ], 401);}
             $Progress->update($request->all());
     
             return response()->json([
