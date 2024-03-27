@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->float('weight');
-            $table->json('measurements');
+            $table->integer('weight');
+            $table->integer('height');
+            $table->integer('waist_line');
+            $table->integer('bicep_thickness');
+            $table->integer('pec_width');
             $table->text('performance');
             $table->enum('status', ['finish', 'unfinish'])->default('unfinish');
             $table->timestamp('date')->useCurrent();
