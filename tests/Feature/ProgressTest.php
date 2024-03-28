@@ -57,6 +57,17 @@ class ProgressTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function testProgressCanBeEdited()
+    {
+        
+        $progress = Progress::factory()->create();
+        $this->actingAs($progress->user);
+        $response = $this->patch('/api/progress/update-status/'. $progress->id,[
+            'status' => 'unfinish'
+        ]);
+
+        $response->assertStatus(200);
+    }
     public function testProgressCanBeDeleted()
     {
         

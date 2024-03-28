@@ -36,13 +36,13 @@ class UserTest extends TestCase
         $response->assertStatus(200);
     }
     public function testUserCanLogout()
-{
+    {
 
-    $user = User::factory()->create();
-    $this->actingAs($user);
-    $response = $this->post('/api/logout');
-    $response->assertStatus(200);
-  
-}
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $response = $this->post('/api/logout');
+        $response->assertStatus(200);
+    
+    }
 
 }
