@@ -75,11 +75,11 @@ class ProgressController extends Controller
                 "status" => 1,
                 "message" => 'progress added'
             ],200);
-         }else{
-            return response()->json([
-                "status" => 0,
-                "message" => 'error'
-            ],500);
+         }  else{
+                return response()->json([
+                    "status" => 0,
+                    "message" => 'error'
+                ],500);
         }}else{
             return response()->json([
                 "status" => 0,
